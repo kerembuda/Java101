@@ -5,7 +5,7 @@ public class ATM_Project {
         Scanner input = new Scanner(System.in);
         long username, usernameInput;
         long password, passwordInput;
-        int entryCount = 4;
+        int entryCount = 3;
         int balance = 12000;
         int userSelection = 0;
         int amount;
@@ -19,26 +19,29 @@ public class ATM_Project {
         username = 123456789L;
         password = 19980508L;
 
-        if (entryCount == 4) {
+        if (entryCount == 3) {
             System.out.println("Hello, welcome to " + bankname);
         } else {
             System.out.println("Wrong username, please try again!!!");
         }
+
         do {
-            System.out.print("Please enter your username (ID number): ");
-            usernameInput = input.nextLong();
-            System.out.print("Please enter your 6-digit password: ");
-            passwordInput = input.nextLong();
-            entryCount--;
             if (entryCount == 0) {
                 System.out.println("Out of entries, your account is blocked. Please contact the bank.");
                 break;
             }
+            System.out.print("Please enter your username (ID number): ");
+            usernameInput = input.nextLong();
+            System.out.print("Please enter your 6-digit password: ");
+            passwordInput = input.nextLong();
             if (username != usernameInput && password == passwordInput) {
-                System.out.println("Wrong username, please try again.\n" + entryCount + "tries left.");
+                entryCount--;
+                System.out.println("Wrong username, please try again.\n" + entryCount + " tries left.");
             } else if (password != passwordInput && username == usernameInput) {
+                entryCount--;
                 System.out.println("Wrong password, please try again.\n" + entryCount + " tries left.");
             } else if (username != usernameInput || password != passwordInput) {
+                entryCount--;
                 System.out.println("Wrong username and password, please try again.\n" + entryCount + " tries left.");
             } else {
                 System.out.println("Login successful!");
@@ -64,20 +67,20 @@ public class ATM_Project {
                         break;
                     } else {
                         balance -= amount;
-                        System.out.println("Successful, " + balance + " " + currency + " left in your balance.");
+                        System.out.println("Successful! " + balance + " " + currency + " left in your balance.");
                         break;
                     }
                 case 2:
                     System.out.print("Please enter the amount of money you wish to deposit: ");
                     amount = input.nextInt();
                     balance += amount;
-                    System.out.println("Successful, your current balance is " + balance + " " + currency);
+                    System.out.println("Successful! your current balance is " + balance + " " + currency);
                     break;
                 case 3:
                     System.out.print("You have " + balance + " " + currency + "\n");
                     break;
                 case 4:
-                    System.out.print("See you later! Thank you for choosing " + bankname);
+                    System.out.print("Thank you for choosing " + bankname + ", see you later!");
                     System.exit(0);
                     break;
                 default:
