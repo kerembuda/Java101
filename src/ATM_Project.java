@@ -44,7 +44,6 @@ public class ATM_Project {
     }
 }
 
-
 /*
  String userName, password;
         Scanner input = new Scanner(System.in);
