@@ -15,7 +15,7 @@ public class ATM_Project {
         String bankname = "Buddha Bank";
         String currency = "Turkish Lira (₺)";
         //hard coded ID-Username for now, will improve later. We have 3 tries to enter the system.
-        //Otherwise account will be blocked. you will start with 12.000 money.
+        //Otherwise, account will be blocked. you will start with 12.000 money.
         username = 5353603721L;
         password = 19980508L;
 
@@ -64,14 +64,14 @@ public class ATM_Project {
                         break;
                     } else {
                         balance -= amount;
-                        System.out.println("Successful, " + balance +" " + currency + " left in your balance.");
+                        System.out.println("Successful, " + balance + " " + currency + " left in your balance.");
                         break;
                     }
                 case 2:
                     System.out.print("Please enter the amount of money you wish to deposit: ");
                     amount = input.nextInt();
                     balance += amount;
-                    System.out.println("Successful, your current balance is " + balance +" "+ currency);
+                    System.out.println("Successful, your current balance is " + balance + " " + currency);
                     break;
                 case 3:
                     System.out.print("You have " + balance + " " + currency + "\n");
@@ -81,7 +81,7 @@ public class ATM_Project {
                     System.exit(0);
                     break;
                 default:
-                    System.out.print("Please enter a valid option."+"\n");
+                    System.out.print("Please enter a valid option." + "\n");
             }
         }
     }
