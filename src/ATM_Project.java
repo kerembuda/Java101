@@ -21,19 +21,18 @@ public class ATM_Project {
 
         if (entryCount == 3) {
             System.out.println("Hello, welcome to " + bankname);
-        } else {
-            System.out.println("Wrong username, please try again!!!");
         }
-
         do {
             if (entryCount == 0) {
                 System.out.println("Out of entries, your account is blocked. Please contact the bank.");
                 break;
             }
+
             System.out.print("Please enter your username (ID number): ");
             usernameInput = input.nextLong();
             System.out.print("Please enter your 6-digit password: ");
             passwordInput = input.nextLong();
+
             if (username != usernameInput && password == passwordInput) {
                 entryCount--;
                 System.out.println("Wrong username, please try again.\n" + entryCount + " tries left.");
@@ -49,7 +48,7 @@ public class ATM_Project {
             }
         } while (username != usernameInput || password != passwordInput);
 
-        //if log in successful we will continue from here
+        //if log-in is successful we will continue from here
         while (isLoginSuccess) {
             System.out.print("\n1-Withdraw money." +
                     "\n2-Deposit money." +
