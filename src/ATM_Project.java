@@ -16,7 +16,7 @@ public class ATM_Project {
         String currency = "Turkish Lira (₺)";
         //hard coded ID-Username for now, will improve later. We have 3 tries to enter the system.
         //Otherwise, account will be blocked. you will start with 12.000 money.
-        username = 5353603721L;
+        username = 123456789L;
         password = 19980508L;
 
         if (entryCount == 4) {
