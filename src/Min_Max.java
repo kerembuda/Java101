@@ -3,7 +3,7 @@ public class Min_Max {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int numCount, num,;
+        int numCount, num;
         int min = 0;
         int max = 0;
 
