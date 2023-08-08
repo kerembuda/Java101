@@ -32,9 +32,16 @@ public class Student {
         }
     }
 
+    void isCoursePass () {
+        this.average = (this.c1.note + this.c2.note + this.c3.note) / 3.0;
+        if (this.average >= 55) isClassPass = true;
+    }
+
     void printNotes() {
         System.out.println(this.c1.name + " Note\t\t= "+ this.c1.note);
         System.out.println(this.c2.name + " Note\t= "+ this.c2.note);
         System.out.println(this.c3.name + " Note\t\t= "+ this.c3.note);
+        System.out.println("Average note\t\t=" + this.average);
+
     }
 }
