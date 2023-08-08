@@ -13,12 +13,17 @@ public class Main {
         mathematics.addTeacher(t2);
         chemistry.addTeacher(t3);
 
-        Student s1 = new Student("Akaki Akakiyeviç", "578","4", history,mathematics,chemistry);
+        Student s1 = new Student("Akaki Akakiyeviç", "578","6", history,mathematics,chemistry);
         s1.addBulkExamNotes(100,15,75);
 
 
-        Student s2 = new Student("Akaki Akakiyeviç", "578","4", history,mathematics,chemistry);
+        Student s2 = new Student("Lilith", "666","1", history,mathematics,chemistry);
         s2.addBulkExamNotes(55, 25, 62);
+
+        Student s3 = new Student("Diablo", "2023","4", history,mathematics,chemistry);
+        s3.addBulkExamNotes(100, 55, 7);
+
+
         s1.printNotes();
         t2.TeacherInfo();
 
