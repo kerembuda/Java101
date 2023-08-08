@@ -11,10 +11,12 @@ public class Teacher {
         this.branch = branch;
     }
 
-    void print() {
+    void TeacherInfo() {
         System.out.println("Teacher Name\t\t:" + this.name);
         System.out.println("Teacher Mobile Phone:" + this.telNo);
         System.out.println("Teacher Branch\t\t:" + this.branch);
     }
+
+
 
 }

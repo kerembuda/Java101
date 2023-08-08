@@ -15,10 +15,15 @@ public class Course {
         int note = 0;
     }
     void addTeacher(Teacher teacher) {
-        this.teacher = teacher;
+        if (teacher.branch.equals(this.prefix)) {
+            this.teacher = teacher;
+            // this.teacher.TeacherInfo();
+        }else {
+            System.out.println("Teacher cannot be assigned to unrelated branch!!!");
+        }
+
     }
 
-    void printTeacherInfo() {
-        this.teacher.print();
-    }
+
+
 }
