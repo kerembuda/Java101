@@ -14,19 +14,20 @@ public class Main {
         chemistry.addTeacher(t3);
 
         Student s1 = new Student("Akaki Akakiyeviç", "578","6", history,mathematics,chemistry);
-        s1.addBulkExamNotes(100,15,75);
+        s1.addBulkExamNotes(100,15,75,100,45,70);
         s1.isCoursePass();
 
         Student s2 = new Student("Lilith", "666","1", history,mathematics,chemistry);
-        s2.addBulkExamNotes(55, 25, 62);
+        s2.addBulkExamNotes(55, 25, 62,66,84,23);
         s2.isCoursePass();
 
         Student s3 = new Student("Diablo", "2023","4", history,mathematics,chemistry);
-        s3.addBulkExamNotes(100, 55, 7);
+        s3.addBulkExamNotes(100, 55, 7, 100, 80, 90);
         s3.isCoursePass();
 
-        s1.printNotes();
-        t1.TeacherInfo();
+        //s1.printNotes();
+
+       // t1.TeacherInfo();
 
 
 

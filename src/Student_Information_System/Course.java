@@ -5,6 +5,7 @@ public class Course {
     String code;
     String prefix;
     int note;
+    int vocalNote;
     Teacher teacher;
 
     Course(String name, String code, String prefix, Teacher teacher) {
@@ -13,6 +14,7 @@ public class Course {
         this.prefix = prefix;
         this.teacher = teacher;
         int note = 0;
+        int vocalNote = 0;
     }
     void addTeacher(Teacher teacher) {
         if (teacher.branch.equals(this.prefix)) {
