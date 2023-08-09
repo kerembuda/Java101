@@ -25,9 +25,9 @@ public class Main {
         s3.addBulkExamNotes(100, 55, 7, 100, 80, 90);
         s3.isCoursePass();
 
-        //s1.printNotes();
+        s1.printNotes();
 
-       // t1.TeacherInfo();
+       t1.TeacherInfo();
 
 
 

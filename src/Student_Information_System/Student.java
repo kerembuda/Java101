@@ -49,7 +49,7 @@ public class Student {
         c1Note = (this.c1.note * 0.80) + (this.c1.vocalNote * 0.20);
         c2Note = (this.c2.note * 0.80) + (this.c2.vocalNote * 0.20);
         c3Note = (this.c3.note * 0.80) + (this.c3.vocalNote * 0.20);
-        this.average = c1Note + c2Note + c3Note / 3.0;
+        this.average = (c1Note + c2Note + c3Note) / 3.0;
         if (this.average >= 55) isClassPass = true;
     }
 
