@@ -20,6 +20,7 @@ public class Student {
         this.average = 0.0;
         this.isClassPass = false;
     }
+
     void addBulkExamNotes(int note1, int note2, int note3, int vNote1, int vNote2, int vNote3) {
         if (note1 >= 0 && note1 <= 100) {
             this.c1.note = note1;
@@ -42,7 +43,7 @@ public class Student {
         }
     }
 
-    void isCoursePass () {
+    void isCoursePass() {
         double c1Note = 0;
         double c2Note = 0;
         double c3Note = 0;
@@ -54,9 +55,9 @@ public class Student {
     }
 
     void printNotes() {
-        System.out.println(this.c1.name + " Note\t\t= "+ this.c1.note);
-        System.out.println(this.c2.name + " Note\t= "+ this.c2.note);
-        System.out.println(this.c3.name + " Note\t\t= "+ this.c3.note);
+        System.out.println(this.c1.name + " Note\t\t= " + this.c1.note);
+        System.out.println(this.c2.name + " Note\t= " + this.c2.note);
+        System.out.println(this.c3.name + " Note\t\t= " + this.c3.note);
         System.out.println("Average note\t\t=" + this.average);
         if (isClassPass) {
             System.out.println("You have passed the class successfully! :)");

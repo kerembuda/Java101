@@ -16,16 +16,16 @@ public class Course {
         int note = 0;
         int vocalNote = 0;
     }
+
     void addTeacher(Teacher teacher) {
         if (teacher.branch.equals(this.prefix)) {
             this.teacher = teacher;
             // this.teacher.TeacherInfo();
-        }else {
+        } else {
             System.out.println("Teacher cannot be assigned to unrelated branch!!!");
         }
 
     }
-
 
 
 }

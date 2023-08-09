@@ -16,7 +16,4 @@ public class Teacher {
         System.out.println("Teacher Mobile Phone:" + this.telNo);
         System.out.println("Teacher Branch\t\t:" + this.branch);
     }
-
-
-
 }
