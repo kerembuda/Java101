@@ -33,7 +33,7 @@ public class Fighter {
     }
 
     int hit(Fighter opponent) {
-        System.out.println(this.name + " deals " + this.damage + "to" + opponent.name);
+        System.out.println(this.name + " deals " + this.damage + " damage to " + opponent.name);
         return 0;
     }
 }

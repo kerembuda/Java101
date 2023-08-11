@@ -8,10 +8,9 @@ public class Match {
     boolean isWeightRight = false;
     int coin;
 
-    Match(Fighter f1, Fighter f2, String weightCategory) {
+    Match(Fighter f1, Fighter f2) {
         this.f1 = f1;
         this.f2 = f2;
-        this.weightCategory = weightCategory;
     }
 
     public boolean isWeightRight() {
@@ -24,14 +23,14 @@ public class Match {
         return coin = (int) (Math.random() * 2);
     }
 
-    void game_run() {
-        coinFlip();
-        if (isWeightRight) {
+    public void game_run() {
+        int coin = coinFlip();
+        if (isWeightRight()) {
             if (coin == 0) {
                 //first fighter goes first
                 while (f1.health > 0 && f2.health > 0) {
                     f2.health = f1.hit(f2);
-                    break;
+
                 }
             }
             if (coin == 1) {
