@@ -7,16 +7,22 @@ public class Fighter {
     int weight;
     String weightCategory;
     double dodgeChance;
-    double block;
+    double blockPower;
 
     //dodge and block chance is by 0-100%
+    //block reduces the damage by % if occurs
 
-    public Fighter(String name, int damage, int health, int weight, double dodgeChance, double block) {
+    public Fighter(String name, int damage, int health, int weight, double dodgeChance, double blockPower) {
         this.name = name;
         this.damage = damage;
         this.health = health;
         this.weight = weight;
-        this.block = block;
+
+        if (blockPower >= 0 && blockPower <= 100) {
+            this.blockPower = blockPower;
+        } else {
+            this.blockPower = 0;
+        }
 
         if (dodgeChance >= 0 && dodgeChance <= 100) {
             this.dodgeChance = dodgeChance;
@@ -44,8 +50,13 @@ public class Fighter {
         System.out.println(this.name + " deals " + this.damage + " damage to " + opponent.name);
 
         if (opponent.isDodge()) {
-            System.out.println(opponent.name + " dodged the attack!");
+            System.out.println(opponent.name + " dodged the attack and did not take any damage!");
             return opponent.health;
+        }
+        if (opponent.isBlock()) {
+            double blockedDamage = (this.damage - ((this.damage * opponent.blockPower) / 100));
+            System.out.println(opponent.name + " blocked the attack and toke "+blockedDamage +" damage!");
+            return (int) (opponent.health - blockedDamage);
         }
 
         if (opponent.health - this.damage < 0) {
@@ -59,7 +70,10 @@ public class Fighter {
         return randomValue <= this.dodgeChance;
     }
 
-
+    boolean isBlock() {
+        double randomValue = Math.random() * 100;
+        return randomValue <= this.blockPower;
+    }
 
 
 }
