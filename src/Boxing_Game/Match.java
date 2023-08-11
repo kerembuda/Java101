@@ -30,13 +30,16 @@ public class Match {
                 //first fighter goes first
                 while (f1.health > 0 && f2.health > 0) {
                     f2.health = f1.hit(f2);
-
+                    System.out.println(f2.name + " " +f2.health);
+                    f1.health = f2.hit(f1);
+                    System.out.println(f1.name + " " +f1.health);
                 }
             }
             if (coin == 1) {
                 //second fighter goes first
                 while (f1.health > 0 && f2.health > 0) {
                     //xxxxxxxxxxxxxxxxxxxx
+                    break;
                 }
             }
         } else {

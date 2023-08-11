@@ -34,6 +34,15 @@ public class Fighter {
 
     int hit(Fighter opponent) {
         System.out.println(this.name + " deals " + this.damage + " damage to " + opponent.name);
-        return 0;
+        return opponent.health - this.damage;
+        // DODGE CHANGE'a göre bişiler yaz burayaaa !!!!
+        /*
+        if () {
+
+        }
+        else {
+            return opponent.health - this.damage;
+        }
+        */
     }
 }
