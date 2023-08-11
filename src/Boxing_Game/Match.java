@@ -32,12 +32,12 @@ public class Match {
                 System.out.println(this.f1.name + " goes first!");
                 while (f1.health > 0 && f2.health > 0) {
                     f2.health = f1.hit(f2);
-                    System.out.println(f2.name + " " + f2.health);
+                    System.out.println(f2.name + " is left with " + f2.health + " health");
                     if (isGameOver()) {
                         break;
                     }
                     f1.health = f2.hit(f1);
-                    System.out.println(f1.name + " " + f1.health);
+                    System.out.println(f1.name + " is left with " + f1.health + " health");
                     if (isGameOver()) {
                         break;
                     }
@@ -48,12 +48,12 @@ public class Match {
                 System.out.println(this.f2.name + " goes first!");
                 while (f1.health > 0 && f2.health > 0) {
                     f1.health = f2.hit(f1);
-                    System.out.println(f1.name + " " + f1.health);
+                    System.out.println(f1.name + " is left with " + f1.health+ " health");
                     if (isGameOver()) {
                         break;
                     }
                     f2.health = f1.hit(f2);
-                    System.out.println(f2.name + " " + f2.health);
+                    System.out.println(f2.name + " is left with " + f2.health+ " health");
                     if (isGameOver()) {
                         break;
                     }
