@@ -50,12 +50,12 @@ public class Fighter {
         System.out.println(this.name + " deals " + this.damage + " damage to " + opponent.name);
 
         if (opponent.isDodge()) {
-            System.out.println(opponent.name + " dodged the attack and did not take any damage!");
+            System.out.println(opponent.name + " dodges the attack and does not take any damage!");
             return opponent.health;
         }
         if (opponent.isBlock()) {
             double blockedDamage = (this.damage - ((this.damage * opponent.blockPower) / 100));
-            System.out.println(opponent.name + " blocked the attack and toke "+blockedDamage +" damage!");
+            System.out.println(opponent.name + " blocks the attack and takes "+blockedDamage +" damage!");
             return (int) (opponent.health - blockedDamage);
         }
 
