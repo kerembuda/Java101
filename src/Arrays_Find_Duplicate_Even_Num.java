@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Arrays_Find_Duplicate_Even_Num {
     public static void main(String[] args) {
 
