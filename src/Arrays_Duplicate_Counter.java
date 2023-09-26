@@ -2,7 +2,7 @@ public class Arrays_Duplicate_Counter {
     public static void main(String[] args) {
         int[] list = {10, 15, 10, 20, 16, 10, 15, 20, 25, 50};
         int[] printed_list = new int[list.length];
-
+//please do not add "0" to the list, it does not work for now.
         for (int i = 0; i < list.length; i++) {
             if (!contains(printed_list, list[i])) {
                 System.out.println(list[i] + " appeared " + appearanceCount(list, i) + " times in list.");
