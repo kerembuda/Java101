@@ -63,7 +63,9 @@ public class MineSweeper {
 
 
     public int get_Mine_Count_Around(int x, int y) {
-        int counter = 0;
+
+
+
 
         int current_location = this.armed_board[x][y];
 
