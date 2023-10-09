@@ -15,7 +15,6 @@ public class Main {
         MineSweeper game = new MineSweeper(boardRow, boardColumn);
 
 
-
         do {
             //first we print the board to the user.
             game.print_board(game.user_interface);
@@ -24,26 +23,36 @@ public class Main {
                 case 9:
                     //if it returns 9, means selected position has a mine and game is over.
                     game.isGameOver = true;
+                    System.out.println("Defeat! Game over!");
                     break;
-                    //if not, we should give the user surrounding mine count.
+                //if not, we should give the user surrounding mine count.
                 case 0:
-
+                    game.user_interface[game.x][game.y] = "|0|";
+                    break;
                 case 1:
-
+                    game.user_interface[game.x][game.y] = "|1|";
+                    break;
                 case 2:
-
+                    game.user_interface[game.x][game.y] = "|2|";
+                    break;
                 case 3:
-
+                    game.user_interface[game.x][game.y] = "|3|";
+                    break;
                 case 4:
-
+                    game.user_interface[game.x][game.y] = "|4|";
+                    break;
                 case 5:
-
+                    game.user_interface[game.x][game.y] = "|5|";
+                    break;
                 case 6:
-
+                    game.user_interface[game.x][game.y] = "|6|";
+                    break;
                 case 7:
-
+                    game.user_interface[game.x][game.y] = "|7|";
+                    break;
                 case 8:
-
+                    game.user_interface[game.x][game.y] = "|8|";
+                    break;
                 default:
                     System.out.println("Something is wrong, please fix me");
                     break;
