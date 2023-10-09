@@ -1,6 +1,5 @@
 package Mine_Sweeper_Game;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -30,7 +29,7 @@ public class MineSweeper {
         this.remaining_spots = (board_height * board_width);
         System.out.println("Total mine count: " + this.mine_count);
 
-        //Here we convert our armed board to string array for user interface.
+        //Here we crete ui with string array
         for (int i = 0; i < this.board_height; i++) {
             for (int j = 0; j < this.board_width; j++) {
                 this.user_interface[i][j] = "|-|";
@@ -44,7 +43,6 @@ public class MineSweeper {
         //it gives back armed board, and also does not change the empty one, so you can use it for later.
         int height = empty_board.length;
         int width = empty_board[0].length;
-
 
         int[][] armed_board = copy_array(empty_board);
 
@@ -120,20 +118,21 @@ public class MineSweeper {
         //returns corresponding value to main -> switch-case frame.
         do {
             this.x = get_x();
-            if ((this.x < 0 || this.x > board_height)) {
+            if ((this.x < 0 || this.x >= board_height)) {
                 System.out.println("Please enter a valid position!");
             }
-        } while ((this.x < 0 || this.x > board_height));
+        } while ((this.x < 0 || this.x >= board_height));
 
         do {
             this.y = get_y();
-            if ((this.y < 0 || this.y > board_width)) {
+            if ((this.y < 0 || this.y >= board_width)) {
                 System.out.println("Please enter a valid position!");
             }
-        } while ((this.y < 0 || this.y > board_width));
+        } while ((this.y < 0 || this.y >= board_width));
 
         //if the selected location contains mine, game is over.
         //if not, we check surrounding tiles.
+
         int mine_counter = 0;
         if (check_if_mine(this.x, this.y)) {
             return 9;
