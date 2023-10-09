@@ -18,8 +18,8 @@ public class Main {
         do {
             //first we print the board to the user.
             game.print_board(game.user_interface);
-
-            //eğer "-" olmayan üyeler - mine count = 0 ise break edip oyun kazanılmalı!!!!
+            //then we count remaining tiles (without the mine count)
+            //we say the mine count at the beginning
             game.count_spaces(game.user_interface);
             System.out.println(game.remaining_spots + " tiles left to choose.");
             if (game.remaining_spots == 0) {
