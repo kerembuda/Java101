@@ -13,20 +13,22 @@ public class MineSweeper {
     int[][] empty_board;
     int[][] armed_board;
     boolean isGameOver;
-    int total_turn_count;
+    boolean gameWon;
+    int mine_count;
     String[][] user_interface;
+    int remaining_spots;
 
     public MineSweeper(int board_height, int board_width) {
         //it takes only the height and width and creates game board.
         this.board_height = board_height;
         this.board_width = board_width;
         this.empty_board = new int[this.board_height][this.board_width];
-
         this.user_interface = new String[this.board_height][this.board_width];
         this.armed_board = generate_mines(this.empty_board);
-
         this.isGameOver = false;
-        this.total_turn_count = board_height * board_width;
+        this.gameWon = false;
+        this.remaining_spots = (board_height * board_width);
+        System.out.println("Total mine count: " + this.mine_count);
 
         //Here we convert our armed board to string array for user interface.
         for (int i = 0; i < this.board_height; i++) {
@@ -47,12 +49,12 @@ public class MineSweeper {
         int[][] armed_board = copy_array(empty_board);
 
         int table_slots_count = height * width;
-        int mine_count = (int) (table_slots_count * 0.25);
+        this.mine_count = Math.floorDiv(table_slots_count, 4);
         //It places quarter amount of mines. Places one more if it is odd. (4 mines for 9 slots)
         Random random = new Random();
         int mine_counter = 0;
 
-        while (mine_counter <= mine_count) {
+        while (mine_counter < this.mine_count) {
             int mine_arm_location = random.nextInt(table_slots_count);
             if (armed_board[(int) mine_arm_location / width][(mine_arm_location % width)] == 0) {
                 armed_board[(int) mine_arm_location / width][(mine_arm_location % width)] = 9;
@@ -100,7 +102,7 @@ public class MineSweeper {
         Scanner input = new Scanner(System.in);
         System.out.print("Please select the row. " + " 1 - " + (this.board_height) + " : ");
         int x = input.nextInt();
-        return x-1;
+        return x - 1;
     }
 
     public int get_y() {
@@ -109,14 +111,13 @@ public class MineSweeper {
         Scanner input = new Scanner(System.in);
         System.out.print("Please select the column. " + " 1 - " + (this.board_width) + " : ");
         int y = input.nextInt();
-        return y-1;
+        return y - 1;
     }
 
     public int get_input_from_user_and_check_mine_count() {
         //here we take individual coordinates from user also checking if it's in the range
         //After getting the correct locations from user, we count the surrounding mines.
-
-        int counter = 0;
+        //returns corresponding value to main -> switch-case frame.
         do {
             this.x = get_x();
             if ((this.x < 0 || this.x > board_height)) {
@@ -133,11 +134,14 @@ public class MineSweeper {
 
         //if the selected location contains mine, game is over.
         //if not, we check surrounding tiles.
+        int mine_counter = 0;
         if (check_if_mine(this.x, this.y)) {
             return 9;
         } else {
+
+
             //placeholder
-            return 0;
+            return mine_counter;
         }
 
     }
@@ -148,6 +152,18 @@ public class MineSweeper {
             return true;
         }
         return false;
+    }
+
+    public void count_spaces(String[][] board) {
+        int counter = 0;
+        for (int i = 0; i < this.board_height; i++) {
+            for (int j = 0; j < this.board_width; j++) {
+                if ((this.user_interface[i][j]).equals("|-|")) {
+                    counter++;
+                }
+            }
+        }
+        this.remaining_spots = counter - this.mine_count;
     }
 }
 

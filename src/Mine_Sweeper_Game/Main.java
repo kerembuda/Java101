@@ -13,11 +13,19 @@ public class Main {
         int boardColumn = input.nextInt();
 
         MineSweeper game = new MineSweeper(boardRow, boardColumn);
-
+        game.print_board(game.armed_board);
 
         do {
             //first we print the board to the user.
             game.print_board(game.user_interface);
+
+            //eğer "-" olmayan üyeler - mine count = 0 ise break edip oyun kazanılmalı!!!!
+            game.count_spaces(game.user_interface);
+            System.out.println(game.remaining_spots + " tiles left to choose.");
+            if (game.remaining_spots == 0) {
+                System.out.println("Congratulations! You have won!");
+                break;
+            }
             switch (game.get_input_from_user_and_check_mine_count()) {
                 //here we check the selected position
                 case 9:
@@ -58,7 +66,5 @@ public class Main {
                     break;
             }
         } while (!game.isGameOver);
-
-        // System.out.println(game.isGameOver ? "You have lost!" : "You have won!");
     }
 }
