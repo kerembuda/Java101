@@ -32,6 +32,8 @@ public class Main {
                     //if it returns 9, means selected position has a mine and game is over.
                     game.isGameOver = true;
                     System.out.println("Defeat! Game over!");
+                    game.user_interface[game.x][game.y] = "|*|";
+                    game.print_board(game.user_interface);
                     break;
                 //if not, we should give the user surrounding mine count.
                 case 0:
