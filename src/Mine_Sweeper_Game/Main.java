@@ -15,10 +15,16 @@ public class Main {
         MineSweeper game = new MineSweeper(boardRow, boardColumn);
 
         do {
-            game.get_input_from_user_and_check_mine_count();
+            switch (game.get_input_from_user_and_check_mine_count()) {
+                case 9:
+                    game.isGameOver = true;
+                    break;
+                default:
 
+
+            }
         } while (!game.isGameOver);
 
-
+        // System.out.println(game.isGameOver ? "You have lost!" : "You have won!");
     }
 }

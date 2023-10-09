@@ -4,12 +4,15 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class MineSweeper {
-    //We have height,width, boards and win status
+    //We have height,width,positions, boards, win status and turn count.
     int board_height;
     int board_width;
+    int x;
+    int y;
     int[][] empty_board;
     int[][] armed_board;
     boolean isGameOver;
+    int total_turn_count;
 
     public MineSweeper(int board_height, int board_width) {
         //it takes only the height and width and creates game board.
@@ -18,8 +21,8 @@ public class MineSweeper {
         this.empty_board = new int[this.board_height][this.board_width];
         this.armed_board = generate_mines(this.empty_board);
         this.isGameOver = false;
+        this.total_turn_count = board_height * board_width;
     }
-
 
     public int[][] generate_mines(int[][] empty_board) {
 
@@ -32,6 +35,7 @@ public class MineSweeper {
 
         int table_slots_count = height * width;
         int mine_count = (int) (table_slots_count * 0.25);
+        //It places quarter amount of mines. Places one more if it is odd. (4 mines for 9 slots)
         Random random = new Random();
         int mine_counter = 0;
 
@@ -87,22 +91,37 @@ public class MineSweeper {
 
     public int get_input_from_user_and_check_mine_count() {
         //here we take individual coordinates from user also checking if it's in the range
-        int x = 0;
-        int y = 0;
+        //After getting the correct locations from user, we count the surrounding mines.
+
         int counter = 0;
         do {
-            x = get_x();
-        } while (!(x <= 0 && x > board_height));
+            this.x = get_x();
+            if (!(this.x <= 0 || this.x > board_height)) {
+                System.out.println("Please enter a valid position!");
+            }
+        } while (!(this.x <= 0 && this.x > board_height));
 
         do {
-            y = get_y();
-        } while (!(y < 0 && y > board_width));
+            this.y = get_y();
+            if (!(this.y < 0 || this.y > board_width)) {
+                System.out.println("Please enter a valid position!");
+            }
+        } while (!(this.y < 0 && this.y > board_width));
 
+        if (check_if_mine(this.x, this.y)) {
+            return 9;
+        } else {
 
+        }
 
+    }
 
-
-
+    public boolean check_if_mine(int x, int y) {
+        //Here we check if the selected point is mine or not.
+        if (this.armed_board[x][y] == 9) {
+            return true;
+        }
+        return false;
     }
 }
 
