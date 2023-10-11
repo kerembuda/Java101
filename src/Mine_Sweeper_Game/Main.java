@@ -13,7 +13,8 @@ public class Main {
         int boardColumn = input.nextInt();
 
         MineSweeper game = new MineSweeper(boardRow, boardColumn);
-        game.print_board(game.armed_board);
+        //use below if you want debugging or wanna see actual mine locations.
+        //game.print_board(game.armed_board);
 
         do {
             //first we print the board to the user.

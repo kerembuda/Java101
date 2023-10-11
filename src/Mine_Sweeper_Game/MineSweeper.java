@@ -158,13 +158,39 @@ public class MineSweeper {
                 if (check_if_mine(this.board_height-2,this.board_width-2)) mine_counter++;
                 if (check_if_mine(this.board_height-1,this.board_width-1)) mine_counter++;
                 //if position is not on corners, we check if it's on the walls
-            } else if () {
-
+                //first left wall
+            } else if (this.y == 0) {
+                if (check_if_mine(this.x-1,this.y)) mine_counter++;
+                if (check_if_mine(this.x-1,this.y+1)) mine_counter++;
+                if (check_if_mine(this.x,this.y+1)) mine_counter++;
+                if (check_if_mine(this.x+1,this.y+1)) mine_counter++;
+                if (check_if_mine(this.x+1,this.y)) mine_counter++;
+                //right wall
+            } else if (this.y == this.board_width-1) {
+                if (check_if_mine(this.x-1,this.y)) mine_counter++;
+                if (check_if_mine(this.x-1,this.y-1)) mine_counter++;
+                if (check_if_mine(this.x,this.y-1)) mine_counter++;
+                if (check_if_mine(this.x+1,this.y-1)) mine_counter++;
+                if (check_if_mine(this.x+1,this.y)) mine_counter++;
+                //bottom wall
+            } else if (this.x == this.board_height-1) {
+                if (check_if_mine(this.x,this.y-1)) mine_counter++;
+                if (check_if_mine(this.x-1,this.y-1)) mine_counter++;
+                if (check_if_mine(this.x-1,this.y)) mine_counter++;
+                if (check_if_mine(this.x-1,this.y+1)) mine_counter++;
+                if (check_if_mine(this.x,this.y+1)) mine_counter++;
+                //top wall
+            } else if (this.x == 0) {
+                if (check_if_mine(this.x,this.y-1)) mine_counter++;
+                if (check_if_mine(this.x+1,this.y-1)) mine_counter++;
+                if (check_if_mine(this.x+1,this.y)) mine_counter++;
+                if (check_if_mine(this.x+1,this.y+1)) mine_counter++;
+                if (check_if_mine(this.x,this.y+1)) mine_counter++;
+                //if it is not around the borders, we can check all surroundings without getting
+                //out of bonds error.
+            } else {
+                mine_counter = check_if_mine_around(this.x,this.y);
             }
-
-
-
-            //placeholder
                 return mine_counter;
         }
 
