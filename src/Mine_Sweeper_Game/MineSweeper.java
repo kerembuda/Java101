@@ -137,10 +137,35 @@ public class MineSweeper {
         if (check_if_mine(this.x, this.y)) {
             return 9;
         } else {
+                //first left top corner
+            if (this.x == 0 && this.y == 0) {
+                if (check_if_mine(this.x + 1, this.y)) mine_counter++;
+                if (check_if_mine(this.x, this.y + 1)) mine_counter++;
+                if (check_if_mine(this.x + 1, this.y + 1)) mine_counter++;
+                //left bottom corner
+            } else if (this.x == this.board_height - 1 && this.y == 0) {
+                if (check_if_mine(this.board_height - 2, this.y)) mine_counter++;
+                if (check_if_mine(this.board_height - 2, this.y + 1)) mine_counter++;
+                if (check_if_mine(this.board_height - 1, this.y + 1)) mine_counter++;
+                //right top corner
+            } else if (this.x == 0 && this.y == this.board_width-1) {
+                if (check_if_mine(this.x,this.board_width-2)) mine_counter++;
+                if (check_if_mine(this.x+1,this.board_width-2)) mine_counter++;
+                if (check_if_mine(this.x+1,this.board_width-1)) mine_counter++;
+                //right bottom corner
+            } else if (this.x == this.board_height-1 && this.y == this.board_width-1) {
+                if (check_if_mine(this.board_height-1,this.board_width-2)) mine_counter++;
+                if (check_if_mine(this.board_height-2,this.board_width-2)) mine_counter++;
+                if (check_if_mine(this.board_height-1,this.board_width-1)) mine_counter++;
+                //if position is not on corners, we check if it's on the walls
+            } else if () {
+
+            }
+
 
 
             //placeholder
-            return mine_counter;
+                return mine_counter;
         }
 
     }
@@ -151,6 +176,21 @@ public class MineSweeper {
             return true;
         }
         return false;
+    }
+
+    public int check_if_mine_around(int x, int y) {
+        //returns mine count around.
+        //only use when position is not close to table borders.
+        int counter = 0;
+        if (check_if_mine(x - 1, y - 1)) counter++;
+        if (check_if_mine(x - 1, y)) counter++;
+        if (check_if_mine(x - 1, y + 1)) counter++;
+        if (check_if_mine(x, y - 1)) counter++;
+        if (check_if_mine(x, y + 1)) counter++;
+        if (check_if_mine(x + 1, y - 1)) counter++;
+        if (check_if_mine(x + 1, y)) counter++;
+        if (check_if_mine(x + 1, y + 1)) counter++;
+        return counter;
     }
 
     public void count_spaces(String[][] board) {
